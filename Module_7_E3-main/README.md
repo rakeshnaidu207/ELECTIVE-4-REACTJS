@@ -1,5 +1,4 @@
 # Module_7_E3
-Preview Link: https://mahithachodavarapu.github.io/Module_7_E3/
 
 Build a DRUM KIT Using javascript.
 Create an app that can play DRUMS on the web app, by performing the mouse events. 
