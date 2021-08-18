@@ -1,0 +1,28 @@
+h1{
+  
+    font-family: Georgia, sans-serif;
+    font-size: 5em;
+    letter-spacing: -2px;
+  
+  }
+  
+  body {
+    background-image: url('images/bg_drummer.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+    
+      }
+   div.background {
+    
+    margin: 70px;
+    margin-top:60px;
+    margin-left:60px;
+    margin-right:60px;
+    background-color:	black;
+    opacity: 0.75;
+  }
+  img{
+  cursor: url('cursor.cur') , auto;
+  }
