@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Product Catalogue</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="icon.png" width="30" height="30" alt="">
+  </a>
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">My Cart</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="Laptop.html">Electronics</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Cookies.html">Grocery</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Shirt.html">Fashion</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Wishlist</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link " href="#">Contact-Us</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br>
+
+<div id="carouselExampleIndicators" class="carousel slide" style=" margin:20px; margin-left:360px;margin-right:360px"data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="grocery.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="fashion.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="electronic.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+  <div class="card-deck" style=" margin:20px; margin-left:60px;margin-right:60px">
+        <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="bis.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">BRITANNIA Cookies</h5>
+    <p class="card-text">The NutriChoice Essentials Ragi Cookies are Diabetic Friendly healthy biscuits crafted specially to provide a healthy snack for Diabetics.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price: ₹59</li>
+    <li class="list-group-item">Best before 06 Dec 2021</li>
+    <li class="list-group-item">Manufactured date 10 Jul 2021</li>
+  </ul>
+  <div class="card-body">
+    <a href="Cookies.html" class="card-link">See More</a>
+ 
+  </div>
+</div>
+  
+       <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="ele.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">HP Pavilion x360 Core i3 10th Gen</h5>
+    <p class="card-text">HP Pavilion x360 Core i3 10th Gen - (8 GB/512 GB SSD/Windows 10 Home) 14-dh1178TU 2 in 1 Laptop  (14 inch, Mineral Silver, 1.58 kg, With MS Office)</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price: ₹50,990</li>
+    <li class="list-group-item">Release date: Aug 2020</li>
+    <li class="list-group-item">7 Days Replacement Policy</li>
+  </ul>
+  <div class="card-body">
+    <a href="Laptop.html" class="card-link">See More</a>
+    
+  </div>
+</div>
+
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="fas.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Collar Formal Shirt</h5>
+    <p class="card-text">Women Regular Fit Solid Mandarin Collar Formal Shirt.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">price: ₹399</li>
+    <li class="list-group-item">Fabric: Poly Crepe</li>
+    <li class="list-group-item">Sleeve: 3/4th Sleeve</li>
+  </ul>
+  <div class="card-body">
+    <a href="Shirt.html" class="card-link">See More</a>
+    
+  </div>
+</div>
+
+    </div>
+  
+
+</body>
+</html>
