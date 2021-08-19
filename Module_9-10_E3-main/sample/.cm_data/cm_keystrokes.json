@@ -1,0 +1,11 @@
+{
+    "index.html": [
+        {
+            "operation": "PASTE",
+            "lines": 6,
+            "keyStrokeTimeStamp": "Mon Jul 26 2021 16:22:02",
+            "keyStrokeInfo": "<header>\r\n  <h1>JSON and AJAX</h1>\r\n  <button id=\"btn\">Fetch Info for 3 New Animals</button>\r\n</header>\r\n\r\n<div id=\"animal-info\"></div>",
+            "position": "1,1"
+        }
+    ]
+}

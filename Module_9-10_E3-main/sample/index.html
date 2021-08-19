@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Product Catalogue</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+       
+      <script>
+         $(document).ready(function() {
+           
+            $("#driver").click(function(event){
+               $.getJSON('cards.json', function(jd) {
+                  $('#stage').html('<p> Name: ' + jd.name + '</p>');
+                  $('#stage').append('<p>Age : ' + jd.Description+ '</p>');
+                  $('#stage').append('<p> Sex: ' + jd.Price+ '</p>');
+               });
+            });
+               
+         });
+      </script>
+ 
+</head>
+
+
+
+
+<body>
+<center>
+
+<br>
+<div><img src="grocery.jpg"></div>
+<br>
+<br>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+<div class="container">
+ <center> <h2>Customer Details</h2></center>
+  <form id="myForm" action="/action_page.php">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Customer name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="Description">Address:</label>
+      <input type="text" class="form-control" id="Address" placeholder="Customer Address" name="Address">
+    </div>
+    <div class="form-group">
+      <label for="Description">Email:</label>
+      <input type="text" class="form-control" id="Email" placeholder="Customer Email" name="Email">
+    </div>
+    <div class="form-group">
+      <label for="Price">Mobile:</label>
+      <input type="text" class="form-control" id="mobile" placeholder="Customer mobile number" name="mobile">
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+  </form></h2>
+
+<br>
+
+<br>
+
+
+  
+
+</body>
+</html>
