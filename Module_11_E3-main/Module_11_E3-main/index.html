@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <!-- Include JS files -->
+    <script src="script.js"></script>
+    <style>
+    fieldset {
+	width: 600px;
+	margin: 25px 10 10 150px;
+	border: 5px solid #999999;
+	box-shadow: 1px 1px #cccccc;
+	padding: 20px;
+}
+body {
+ background-image: url("bg.jpg");
+ background-size: cover;
+ background-position: center;
+ 
+ 
+}
+
+label {
+	float: left;
+	width: 140px;
+	display: block;
+	clear: left;
+	text-align: right;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+
+button {
+	margin-left: 150px;
+}
+
+input {
+	margin-top: 10px;
+	display: block;
+	text-align: right;
+	width: 228px;
+}
+
+#bmi_label {
+	width: 200px;
+}
+
+#bmi {
+	width: 66px;
+}
+
+#intro {
+	width: 300px;
+	margin: 25px 0 0 50px;
+	padding: 10px;
+	border: 1px solid #999999;
+	box-shadow: 1px 1px #cccccc;
+}
+.title{
+         margin-bottom: 10px;
+         text-align:center;
+         width: 610px;
+         color:green;
+         border: solid black 2px;
+         }
+  
+         input[type="button"]
+         {
+         background-color:grey;
+         color: black;
+         border: solid black 2px;
+        
+         }
+  
+         input[type="text"]
+         {
+         background-color:white;
+         border: solid black 2px;
+         
+         }
+
+    </style>
+</head>
+  
+<body>
+
+	<div>
+    <br>
+        <br>
+		<p id="intro">Calculate your BMI (body mass index) by using the form below. Enter your weight and height and click the Calculate button to display your BMI result.</p>
+		<br>
+        <br>
+        <form action="none" method="post" name="bmiform">
+			<fieldset>
+			<legend>Height and Weight</legend>
+				<label for="pounds">Weight (pounds):</label>
+				<input type="text" name="pounds" id="pounds">
+				<br>
+				<label for="inches">Height (inches):</label>
+				<input type="text" name="inches" id="inches">
+				<br>
+				<button type="button" name="calculate" value="Calculate your BMI" onclick="calcBMI()">Calculate your BMI</button>
+			</fieldset>
+			<fieldset>
+			<legend>BMI</legend>
+				<label for="bmi" id="bmi_label">Your calculated BMI is:</label>
+				<input type="text" name="bmi" id="bmi" readonly="readonly">
+			</fieldset>
+		</form>
+	</div>
+    <br>
+    <br>
+    <img style='display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;'src="bmi.png" alt="Paris" class='center' >
+
+  <br>
+    <br>
+    <br>
+    <br>
+<center>
+    <div  >
+   <div class = title > Calculator</div>
+     <table border="1">
+         <tr>
+            <td colspan="3"><input type="text" id="result"/></td>
+            <!-- clr() function will call clr to clear all value -->
+            <td><input type="button" value="c" onclick="clr()"/> </td>
+         </tr>
+         <tr>
+            <!-- create button and assign value to each button -->
+            <!-- dis("1") will call function dis to display value -->
+            <td><input type="button" value="1" onclick="dis('1')"/> </td>
+            <td><input type="button" value="2" onclick="dis('2')"/> </td>
+            <td><input type="button" value="3" onclick="dis('3')"/> </td>
+            <td><input type="button" value="/" onclick="dis('/')"/> </td>
+         </tr>
+         <tr>
+            <td><input type="button" value="4" onclick="dis('4')"/> </td>
+            <td><input type="button" value="5" onclick="dis('5')"/> </td>
+            <td><input type="button" value="6" onclick="dis('6')"/> </td>
+            <td><input type="button" value="-" onclick="dis('-')"/> </td>
+         </tr>
+         <tr>
+            <td><input type="button" value="7" onclick="dis('7')"/> </td>
+            <td><input type="button" value="8" onclick="dis('8')"/> </td>
+            <td><input type="button" value="9" onclick="dis('9')"/> </td>
+            <td><input type="button" value="+" onclick="dis('+')"/> </td>
+         </tr>
+         <tr>
+            <td><input type="button" value="." onclick="dis('.')"/> </td>
+            <td><input type="button" value="0" onclick="dis('0')"/> </td>
+            <!-- solve function call function solve to evaluate value -->
+            <td><input type="button" value="=" onclick="solve()"/> </td>
+            <td><input type="button" value="*" onclick="dis('*')"/> </td>
+         </tr>
+      </table>
+   </div>
+    </center>
+    </div>
+</body>
+  
+</html>
