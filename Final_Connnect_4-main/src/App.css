@@ -1,0 +1,186 @@
+.App {
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+  margin-right: 100px;
+}
+
+.Con{
+  text-align: center;
+  
+  
+  
+}
+
+.Inp{
+  width: 200px;
+  height:30px;
+  border: 2px solid red;
+  
+}
+
+.Inp:hover{
+  cursor: text;
+  background-color: lightpink;
+}
+
+.Inp1{
+  width: 200px;
+  height:30px;
+  border: 2px solid yellow;
+  
+}
+
+.Inp1:hover{
+  cursor: text;
+  background-color: yellow;
+}
+
+
+
+.Turn1{
+  color: red;
+
+}
+
+.Turn2{
+  color: yellow;
+
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.tags{
+  text-align: left;
+  overflow: hidden;
+  background-color:#5689db;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.tags:hover {
+  background-color:tomato;
+  color: black;
+}
+
+.App-header {
+  background-color: #222;
+  height: 80%;
+  padding: 1%;
+  color: white;
+
+}
+
+.App-intro {
+  font-size: large;
+  background-color: lightcyan;
+}
+
+.list{
+  margin-left: 29%;
+  text-align: left;
+  padding: 5px;
+}
+
+.list1{
+  margin-left: 29%;
+  text-align: left;
+  padding: 5px;
+  color:cyan;
+}
+.Game {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+    background-color: #5689db;
+    border: 1px solid #5689db;
+    border-radius: 3px;
+    display: inline-block;
+    color: #FFF;
+    font-size: 12pt;
+    padding: 7px 28px;
+    text-decoration: none;
+    margin: 5px;
+
+    transition: all 0.5s;
+    max-width: 160px;
+    min-width: 160px;
+    margin-top: 80px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: black;
+    font-size: 14pt;
+}
+
+button#again{
+  margin-top: 5%;
+  margin-right: 10%;
+}
+
+.Board {
+  display: flex;
+}
+
+
+
+.Hole {
+  padding: 5px;
+  margin: 1px;
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
+.Hole div {
+  position: relative;
+  min-width: 35px;
+  min-height: 35px;
+  border-radius: 40px;
+  top: -400px;
+  transition: transform 0.5s;
+}
+
+.Red {
+  background-color: #FF456C;
+  transform: translateY(400px);
+}
+
+.Yellow {
+  background-color: #fbff2c;
+  transform: translateY(400px);
+}
+
+.winnerMessage {
+  margin: 20px;
+  font-size: 0pt;
+  font: 12pt;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.18, 0.99, 0.8, 1.17);
+}
+
+.appear {
+  opacity: 1;
+  font-size: 20pt;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
