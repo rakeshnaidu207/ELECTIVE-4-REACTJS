@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>To Do List</title>
+        <h1 style="text-align:center; color:brown; font-family:Verdana">To Do List</h1>
+        <link rel="stylesheet" href="style.css">
+     
+    </head>
+    <body>
+        <div id="app" />
+        <script type="text/babel">
+   
+ 
+
+
+
+
+
+
+ 
+
+            class App extends React.Component {
+                
+
+                constructor(props) {
+                    
+                    super(props);
+                    this.state = {
+                        task:[],
+                        input:"",
+                        input1:"",
+                        res:"",
+                        item:"",
+                        score:0,
+                        time: {},
+                        seconds: 10,
+                        edit: false
+                       
+                         
+                    };
+
+                    this.timer = 0;
+                    this.startTimer = this.startTimer.bind(this);
+                    this.countDown = this.countDown.bind(this);
+                    
+                   
+                }
+
+                render() {
+                    if (this.state.input1!==""){
+                        return(
+                            <div>
+                            <EditTodo task={this.state.task} />
+                            </div>
+                        )
+                    }
+                   else{
+                    
+                   return(
+                       
+                       
+                       <div class="container">
+                        <h1>Tasks</h1>
+                        <button id="timer" onClick={this.startTimer}>Start <br></br>h:{this.state.time.h} m: {this.state.time.m} s: {this.state.time.s}</button>
+                        <button id="reset" onClick={this.resetTime}>Reset </button>
+                        
+                        <ul>
+                            {this.state.task.map((task, i)=>
+                            <li id="list" key={i}>
+                                {task}
+                                <br></br>
+                    
+                                <button onClick={(event)=>{this.deleteTask(event,i)}}>DeleteTask</button>
+                                <button  value= {this.state.input1} onClick={(event)=>{this.update(task, i)}}>Update</button>
+
+                            </li>
+                            )}
+                        </ul>
+                        <div>
+                        <input onKeyPress={this.keyPress} onChange={this.updateChange} value = {this.state.input} type="text" placeholder="Enter the task" />
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <button onClick={this.insert} value = {this.state.res}  >Insert</button>
+                        <h3>List of tasks:{this.state.score}</h3>
+                        </div>
+                    </div>
+                   );
+                   }
+                }
+
+                update = (uptask, i) => {
+                    const updatedTodos = task.map(todo => {
+                    if (task.i === i) {
+                        return { ...task, task: uptask };
+                    }
+                    return task;
+                    });
+                    this.setState({
+                        task: [...this.state.task, uptask]
+                    })
+                };
+
+                
+   
+                
+
+
+                secondsToTime(secs){
+                let hours = Math.floor(secs / (60 * 60));
+
+                let divisor_for_minutes = secs % (60 * 60);
+                let minutes = Math.floor(divisor_for_minutes / 60);
+
+                let divisor_for_seconds = divisor_for_minutes % 60;
+                let seconds = Math.ceil(divisor_for_seconds);
+
+                let obj = {
+                "h": hours,
+                "m": minutes,
+                "s": seconds
+                };
+                return obj;
+            }
+            componentDidMount=(event, i)=> {
+            let timeLeftVar = this.secondsToTime(this.state.seconds);
+            this.setState({ 
+                time: timeLeftVar 
+                });
+        }
+
+        resetTime=()=>{
+             if (this.state.seconds === 0) { 
+
+            
+           let timeLeftVar = this.secondsToTime(this.state.seconds);
+           this.timer=0;
+            this.setState({
+                time: {timeLeftVar},
+                seconds: 10, 
+                timer:0
+                
+                });
+            clearInterval(this.timer);
+        }
+            
+           
+        }
+
+        startTimer=()=> {
+           
+            if (this.timer == 0 && this.state.seconds > 0 ) {
+            this.timer = setInterval(this.countDown, 1000);
+            }
+        }
+
+        countDown=()=> {
+            // Remove one second, set state so a re-render happens.
+            let second= this.state.seconds - 1;
+
+            this.setState({
+            time: this.secondsToTime(second),
+            seconds: second,
+            });
+    
+            // Check if we're at zero.
+                if(this.state.seconds===5){
+                    alert("Hurry Up!!! Only Five Seconds More!!")
+                }
+                
+                if (this.state.seconds === 0) { 
+
+
+                clearInterval(this.timer);
+
+
+                return this.delete();
+                }
+                
+
+                
+            }
+
+
+
+      
+
+        updateChange=(e)=>{
+                    this.setState({
+                        input: e.target.value
+                    });
+                }
+        updateChange1=(e)=>{
+                    this.setState({
+                        input: e.target.value
+                    });
+                }
+                keyPress=(e)=>{
+                    
+                    if(e.key=="Enter" && this.state.input!="" ){
+
+                        this.setState({
+                        
+                        task: [...this.state.task, this.state.input],
+                        input:"",
+                        score:this.state.score+1
+                    });
+                   
+
+                    }
+                   
+                }
+
+
+                insert = () => {
+                   
+                    if(this.state.input!=""){
+                   
+                    this.setState({
+                        
+                        task: [...this.state.task, this.state.input],
+                        input:"",
+                        score:this.state.score+1
+                        
+                        
+                    });
+                    }
+                    
+                }
+          
+
+         
+
+            delete=(event,i) =>{
+                var newtask =[...this.state.task]
+                newtask.splice(i,1)
+                alert("You ran out of the time. The tasks are deleting")
+                this.setState({
+                task: [],
+                score:0
+                
+                });
+                
+                }
+            deleteTask=(event,i) =>{
+                var newtask =[...this.state.task]
+                newtask.splice(i,1)
+                this.setState({
+                task: newtask,
+                score:this.state.score-1
+                
+                });
+
+                }   
+               
+            }
+
+
+            ReactDOM.render((
+                <div>
+                    <App />
+                </div>
+            ), document.querySelector("#app"));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+body{
+    
+    background-image: url("bg2.jpg");
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+    
+}
+h1{
+  
+    font-family: Georgia, sans-serif;
+    font-size: 3em;
+    letter-spacing: -2px;
+  
+  }
+
+.container{
+    text-align:center;
+    margin: 70px;
+    margin-top:60px;
+    margin-left:60px;
+    margin-right:60px;
+    float: center;
+    background-color: rgba(161, 73, 51, 0.856);
+    opacity: 0.98;
+    border: 5px solid black;
+    font-size: 20px;
+    color: rgb(248, 242, 242);
+  
+
+}
+
+
+li {
+
+color: #333;
+font: bold;
+background-color: lightblue;
+text-align: center;
+width:150px;
+padding: 10px;
+margin-left: 29%;
+margin-bottom: 5px;
+border-radius: 5px;
+
+transition: background-color .2s ease-out;
+}
+
+li:hover {
+background-color: pink;
+cursor: pointer;
+}
+
+button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid black;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:transparent;
+    font-family:'verdana';
+    font-weight:300;
+    color: black;
+    text-align:center;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+}
+button:hover{
+    color:#000000;
+    background-color:aliceblue;
+}
+button#button1:hover{
+    color:#000000;
+    background-color:red;
+}
+@media all and (max-width:30em){
+button{
+    display:block;
+    margin:0.4em auto;
+}
+}
+
+button{
+    animation:bouncy 3s infinite linear;
+    position:relative;
+}
+@keyframes bouncy {
+    10%{top:0em}
+    40%{top:0em}
+    
+    46%{top:0em}
+    48%{top:-0.4em}
+    50%{top:0em}
+    100%{top:0em;}
+}
+    
+input{
+    width: 200px;
+    height:30px;
+}
+input:hover{
+    cursor:text;
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <title>To list</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app" />
+  <script type="text/babel">
+
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          task: [],
+          input: "",
+          count: 0,
+          time: {},
+          seconds: 10,
+
+        };
+        this.timer = 0;
+        this.startTimer = this.startTimer.bind(this);
+        this.countDown = this.countDown.bind(this);
+
+      }
+      
+
+      render() {
+        return (
+          <div class="container">
+            <h1>ToDo list</h1>
+            <h3>list of items:{this.state.count}</h3>
+            <button id="timer" onClick={this.startTimer}>Start <br></br>h:{this.state.time.h} m: {this.state.time.m} s: {this.state.time.s}</button><br></br><br></br>
+
+
+            <ul >
+              {this.state.task.map((task, i) =>
+                <li id="tab" key={i}>
+                  {task.toDoItems || task}
+                  <button id="btn" onClick={(event) => { this.deletetask(event, i) }}>Deletetask</button>
+                  <button id="btn" onClick={(event) => {this.edit(event,i) }}>Edit</button>
+                  <button id="btn"onClick={(event)=>{this.Updatetask(event,i)}}>save</button>
+
+                </li>
+              )}
+            </ul>
+            <div>
+
+              <input id="ipstyle" onKeyPress={this.inputKeyPress} onChange={this.UpdateValue} name="input" value={this.state.input} placeholder="Type here" />
+              <button id="btnstyle" onClick={this.addtask}>Addtask</button>
+              <button id="btnstyle" onClick={this.getData}>Fetch</button>
+              <button onClick={this.restore}  >Restore</button>
+              <button id="reset" onClick={this.resetTime}>Reset </button>
+
+
+
+            </div>
+          </div>
+        );
+      }
+     
+      inputKeyPress = (event) => {
+        if (event.key == "Enter" && this.state.input!=""){
+          this.setState(state=>({
+            task: [...this.state.task, this.state.input],
+          input: "",
+          count: state.count + 1,
+          }));
+        }
+      }
+        getData=()=>{
+        
+
+        return this.fetchData();
+    }
+
+
+    fetchData(){
+            fetch('https://github.com/mahithachodavarapu/Module_14_E3/blob/main/sample.json')
+            .then(res => res.json())
+            .then((data) => {
+            this.setState({ 
+            task: data})
+           
+            })
+            .catch(console.log)
+            
+            
+            
+        }
+
+      UpdateValue = (event) => {
+        this.setState({
+          input: event.target.value,
+        });
+      }
+     
+      addtask = (event) => {
+        this.setState(state => ({
+          task: [...state.task, state.input],
+          input: "",
+          count: state.count + 1,
+
+
+
+        }));
+
+      }
+      edit=(event,index)=>{
+        this.setState(state=>({
+          input:this.state.task[index]
+        }))
+       
+
+      }
+      Updatetask=(event,index)=>{
+       var task=[...this.state.task];
+       task[index]=this.state.input;
+        this.setState(state=>({
+          task:task,
+          input:""
+          
+        }));
+       
+       
+        
+        }
+       
+      
+      
+      
+      secondsToTime(secs){
+                let hours = Math.floor(secs / (60 * 60));
+
+                let divisor_for_minutes = secs % (60 * 60);
+                let minutes = Math.floor(divisor_for_minutes / 60);
+
+                let divisor_for_seconds = divisor_for_minutes % 60;
+                let seconds = Math.ceil(divisor_for_seconds);
+
+                let obj = {
+                "h": hours,
+                "m": minutes,
+                "s": seconds
+                };
+                return obj;
+            }
+            componentDidMount=(event, i)=> {
+            let timeLeftVar = this.secondsToTime(this.state.seconds);
+            this.setState({ 
+                time: timeLeftVar 
+                });
+        }
+
+        resetTime=()=>{
+             if (this.state.seconds === 0) { 
+
+            
+           let timeLeftVar = this.secondsToTime(this.state.seconds);
+           this.timer=0;
+            this.setState({
+                time: {timeLeftVar},
+                seconds: 10, 
+                timer:0
+                
+                });
+            clearInterval(this.timer);
+        }
+            
+           
+        }
+
+        startTimer=()=> {
+           
+            if (this.timer == 0 && this.state.seconds > 0 ) {
+            this.timer = setInterval(this.countDown, 1000);
+            }
+        }
+
+        countDown=()=> {
+            // Remove one second, set state so a re-render happens.
+            let second= this.state.seconds - 1;
+
+            this.setState({
+            time: this.secondsToTime(second),
+            seconds: second,
+            });
+    
+            // Check if we're at zero.
+                if(this.state.seconds===5){
+                    alert("Five Seconds left")
+                }
+                
+                if (this.state.seconds === 0) { 
+
+
+                clearInterval(this.timer);
+
+
+                }
+
+
+              }
+         delete=(event,i) =>{
+                var newtask =[...this.state.task]
+                var del = this.state.task
+                alert("You ran out of the time. The task are deleting")
+                this.setState({
+                task: [],
+                count:0,
+                task1:[...this.state.task1, ...this.state.task]
+                
+                });
+                
+                }
+          deletetask = (event, i) => {
+        
+        var ditem = [...this.state.task]
+        ditem.splice(i, 1)
+        this.setState(state => ({
+          task: ditem,
+          count: state.count - 1
+        }));
+
+      }
+                
+           
+                restore=()=>{
+                    if(this.state.task1!=""){
+                    const len = this.state.task
+                    this.setState({
+                        task:[...this.state.task, ...this.state.task1],
+                        score:this.state.task1.length+this.state.task.length,
+                        task1:""
+                    })
+                    }
+                    else{
+                        alert("There are no deleted items")
+                    }
+               
+                    
+                    
+                    
+                }
+
+            
+    }
+
+
+
+    ReactDOM.render(<App />, document.querySelector("#app"));
+
+  </script>
+</body>
+
+</html>
